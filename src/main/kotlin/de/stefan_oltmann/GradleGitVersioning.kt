@@ -3,7 +3,8 @@ package de.stefan_oltmann
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import java.io.File
-import java.util.*
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 @Suppress("unused")
 class GradleGitVersioning: Plugin<Project> {
@@ -21,16 +22,15 @@ class GradleGitVersioning: Plugin<Project> {
 
     private fun setVersionFromGit(projectDir: File) {
 
-        val commitTimeMillis = GitUtil.getCommitMillis(projectDir)
+        val commitTime = GitUtil.getCommitTime(projectDir) ?: return
 
-        if (commitTimeMillis == 0L)
-            return
+        val dateTime = LocalDateTime.ofInstant(
+            commitTime,
+            ZoneId.systemDefault()
+        )
 
-        println("Commited on $commitTimeMillis")
+        val versionName = VersionNameGenerator.generateVersionName(dateTime)
 
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = commitTimeMillis
-
-        println("Commit on ${calendar.time}")
+        println("Commited on $dateTime. This results in version $versionName")
     }
-}
+ }

@@ -3,10 +3,11 @@ package de.stefan_oltmann
 import org.eclipse.jgit.lib.Constants
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import java.io.File
+import java.time.Instant
 
 object GitUtil {
 
-    fun getCommitMillis(directory: File): Long {
+    fun getCommitTime(directory: File): Instant? {
 
         val repositoryBuilder = FileRepositoryBuilder()
 
@@ -16,7 +17,7 @@ object GitUtil {
 
         if (repositoryBuilder.gitDir == null) {
             println("No .git dir found.")
-            return 0
+            return null
         }
 
         println("Using .git dir ${repositoryBuilder.gitDir.absolutePath}")
@@ -27,11 +28,11 @@ object GitUtil {
 
         if (revision == null) {
             println("No head revision found.")
-            return 0
+            return null
         }
 
         val commitTime = repository.parseCommit(revision).commitTime
 
-        return commitTime.toLong() * 1000
+        return Instant.ofEpochSecond(commitTime.toLong())
     }
 }
