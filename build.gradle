@@ -1,0 +1,62 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+
+    id 'maven-publish' // local testing
+    id 'com.gradle.plugin-publish' version '0.14.0'
+}
+
+group 'de.stefan_oltmann'
+version '0.1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'de.stefan_oltmann.git-versioning'
+            displayName= 'Git Versioning'
+            description = 'This extension will adjust the project version based on current git timestamp.'
+            implementationClass = 'de.stefan_oltmann.GradleGitVersioning'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/StefanOltmann/gradle-git-versioning-plugin'
+    vcsUrl = 'https://github.com/StefanOltmann/gradle-git-versioning-plugin.git'
+    tags = ['git', 'versioning', 'version']
+
+    plugins {
+        gitVersioning {
+            displayName = 'Git Versioning Plugin'
+        }
+    }
+}
