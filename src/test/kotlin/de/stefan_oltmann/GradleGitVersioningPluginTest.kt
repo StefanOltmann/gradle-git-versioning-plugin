@@ -30,5 +30,8 @@ class GradleGitVersioningPluginTest {
             VersionNameGenerator.generateVersionName(commit.commitTime),
             extension.versionName
         )
+
+        /* The project version should now be set. */
+        assertEquals(extension.versionName, project.version)
     }
 }

@@ -22,11 +22,18 @@ You need to first apply the plugin like this:
 apply plugin: 'de.stefan_oltmann.git-versioning'
 ```
 
-After that you can set the version in this way:
+The plugin will automatically set the projects version. So you don't need to specify it as this will override the value.
+
+If you want or need to specify it explicit you can do it this way:
 
 ```
 version = "$gitVersioning.versionName" as Object
 ```
+
+### build_version.txt
+
+In addition, a `build_version.txt` will be written into the `build` directory so you can use the version name in
+scripts.
 
 ### Format
 

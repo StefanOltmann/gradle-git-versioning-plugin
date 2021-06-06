@@ -8,7 +8,7 @@ import java.time.ZoneId
 open class VersioningExtension(val project: Project) {
 
     val commitTime by lazy {
-        GitUtil.getCommitTime(project.rootProject.projectDir)
+        GitUtil.getCommitTime(project.rootDir)
     }
 
     val versionName by lazy {

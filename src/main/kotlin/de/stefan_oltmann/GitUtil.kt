@@ -1,13 +1,14 @@
 package de.stefan_oltmann
 
+import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.lib.Constants
+import org.eclipse.jgit.lib.Repository
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import java.io.File
-import java.time.Instant
 
 object GitUtil {
 
-    fun getCommitTime(directory: File): Int {
+    private fun findRepository(directory: File): Repository? {
 
         println("Project dir is ${directory.absolutePath}")
 
@@ -19,12 +20,17 @@ object GitUtil {
 
         if (repositoryBuilder.gitDir == null) {
             println("No .git dir found.")
-            return 0
+            return null
         }
 
         println("Using .git dir ${repositoryBuilder.gitDir.absolutePath}")
 
-        val repository = repositoryBuilder.build()
+        return repositoryBuilder.build()
+    }
+
+    fun getCommitTime(directory: File): Int {
+
+        val repository = findRepository(directory) ?: return 0
 
         val revision = repository.resolve(Constants.HEAD)
 
@@ -34,5 +40,16 @@ object GitUtil {
         }
 
         return repository.parseCommit(revision).commitTime
+    }
+
+    fun tagCommit(directory: File, tag: String) {
+
+        val repository = findRepository(directory) ?: return
+
+        val git = Git.wrap(repository)
+
+        git.tag().setName(tag).setForceUpdate(true).call();
+
+        git.push().call()
     }
 }
