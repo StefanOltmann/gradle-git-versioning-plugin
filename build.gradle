@@ -28,7 +28,7 @@ dependencies {
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 
-    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r'
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.11.1.202105131744-r'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
