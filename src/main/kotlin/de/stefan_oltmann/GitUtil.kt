@@ -7,7 +7,9 @@ import java.time.Instant
 
 object GitUtil {
 
-    fun getCommitTime(directory: File): Instant? {
+    fun getCommitTime(directory: File): Int {
+
+        println("Project dir is ${directory.absolutePath}")
 
         val repositoryBuilder = FileRepositoryBuilder()
 
@@ -17,7 +19,7 @@ object GitUtil {
 
         if (repositoryBuilder.gitDir == null) {
             println("No .git dir found.")
-            return null
+            return 0
         }
 
         println("Using .git dir ${repositoryBuilder.gitDir.absolutePath}")
@@ -28,11 +30,9 @@ object GitUtil {
 
         if (revision == null) {
             println("No head revision found.")
-            return null
+            return 0
         }
 
-        val commitTime = repository.parseCommit(revision).commitTime
-
-        return Instant.ofEpochSecond(commitTime.toLong())
+        return repository.parseCommit(revision).commitTime
     }
 }

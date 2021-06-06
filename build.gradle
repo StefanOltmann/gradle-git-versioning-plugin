@@ -42,9 +42,9 @@ gradlePlugin {
     plugins {
         simplePlugin {
             id = 'de.stefan_oltmann.git-versioning'
-            displayName= 'Git Versioning'
+            displayName = 'Git Versioning'
             description = 'This extension will adjust the project version based on current git timestamp.'
-            implementationClass = 'de.stefan_oltmann.GradleGitVersioning'
+            implementationClass = 'de.stefan_oltmann.GradleGitVersioningPlugin'
         }
     }
 }
