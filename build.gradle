@@ -31,7 +31,7 @@ dependencies {
     implementation 'org.eclipse.jgit:org.eclipse.jgit:5.11.0.202103091610-r'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
 
 test {
