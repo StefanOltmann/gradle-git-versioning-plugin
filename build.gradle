@@ -40,7 +40,7 @@ test {
 
 gradlePlugin {
     plugins {
-        simplePlugin {
+        gitVersioning {
             id = 'de.stefan_oltmann.git-versioning'
             displayName = 'Git Versioning'
             description = 'This extension will adjust the project version based on current git timestamp.'
@@ -56,6 +56,7 @@ pluginBundle {
 
     plugins {
         gitVersioning {
+            id = 'de.stefan_oltmann.git-versioning'
             displayName = 'Git Versioning Plugin'
         }
     }
