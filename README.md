@@ -1,4 +1,4 @@
-# Gradle Git Versioning
+# Gradle Git Versioning Plugin
 
 ### Motivation
 
