@@ -11,6 +11,20 @@ However, you're required to use it. For example if you want to release an iOS ap
 
 Managing this manually is error-prone and time-consuming. That's why I want to generate it.
 
+### How to use
+
+You need to first apply the plugin like this:
+
+```
+apply plugin: 'de.stefan_oltmann.git-versioning'
+```
+
+After that you can set the version in this way:
+
+```
+version = "$gitVersioning.versionName" as Object
+```
+
 ### Format
 
 The version string Apple requires is composed of one to three period-separated integers, such as 10.14.1.
@@ -23,8 +37,9 @@ The generated version string by this string is composed in this way:
 2. The current day of the year
 3. The minute of day divided by 1.5
 
-One day has 1440 which is greater than 999.
-But if you divide it by 1.5 the maximum value becomes 960.
+### Discussion
+
+One day has 1440 which is greater than 999, but if you divide it by 1.5 the maximum value becomes 960.
 
 So this system works until the end of 2999-12-31 which equals to version `999.365.960`.
 This should give me some time to come up with a better system. ;)
