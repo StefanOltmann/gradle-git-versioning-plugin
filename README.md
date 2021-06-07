@@ -58,6 +58,6 @@ come up with a better system. ;)
 The drawback is that there is a 90-second timeframe in which all commits will result in the same version. If you want to
 use this system you should not release more than one new version in 90 seconds.
 
-Using the current Unit timestamp divided by 10 and putting dots between the numbers was the only alternative I could
-think of. This would have an accuracy of 10 seconds, but on the other hand it's not so readable. With this system you
-always now the year and you get a feeling if it was released early or late in the year.
+Using the current Unix timestamp divided by 10 and putting dots between the numbers was the only alternative I could
+think of. This would have an accuracy of 10 seconds, but on the other hand it's not really readable. With this system you
+always know the year and you get a feeling if it was released early or late in that year.
