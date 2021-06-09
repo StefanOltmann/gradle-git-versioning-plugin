@@ -50,7 +50,7 @@ The generated version string by this plugin is composed in this way:
 
 ### Discussion
 
-One day has 1440 which is greater than 999, but if you divide it by 1.5 the maximum value becomes 960.
+One day has 1440 minutes which is more than 999, but if you divide it by 1.5 the maximum value becomes 960.
 
 So this system works until the end of 2999-12-31 which equals to version `999.365.960`. This should give me some time to
 come up with a better system. ;)
