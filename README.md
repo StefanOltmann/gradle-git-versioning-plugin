@@ -42,7 +42,7 @@ only contain numeric characters (0-9) and periods. The maximum value is 999 for 
 
 So the range that can be used here is `0.0.0` to `999.999.999`.
 
-The generated version string by this string is composed in this way:
+The generated version string by this plugin is composed in this way:
 
 1. The current year minus 2000
 2. The current day of the year
