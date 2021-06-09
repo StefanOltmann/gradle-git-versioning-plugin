@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'de.stefan_oltmann'
-version '0.3.0'
+version '0.1.0'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -41,7 +41,7 @@ test {
 gradlePlugin {
     plugins {
         gitVersioning {
-            id = 'de.stefan_oltmann.git-versioning'
+            id = 'de.stefan-oltmann.git-versioning'
             displayName = 'Git Versioning'
             description = 'This extension will adjust the project version based on current git timestamp.'
             implementationClass = 'de.stefan_oltmann.GradleGitVersioningPlugin'
@@ -56,7 +56,7 @@ pluginBundle {
 
     plugins {
         gitVersioning {
-            id = 'de.stefan_oltmann.git-versioning'
+            id = 'de.stefan-oltmann.git-versioning'
             displayName = 'Git Versioning Plugin'
         }
     }
