@@ -42,7 +42,7 @@ only contain numeric characters (0-9) and periods. The maximum value is 999 for 
 
 So the range that can be used here is `0.0.0` to `999.999.999`.
 
-The generated version string by this string is composed in this way:
+The generated version string by this plugin is composed in this way:
 
 1. The current year minus 2000
 2. The current day of the year
@@ -50,7 +50,7 @@ The generated version string by this string is composed in this way:
 
 ### Discussion
 
-One day has 1440 which is greater than 999, but if you divide it by 1.5 the maximum value becomes 960.
+One day has 1440 minutes which is more than 999, but if you divide it by 1.5 the maximum value becomes 960.
 
 So this system works until the end of 2999-12-31 which equals to version `999.365.960`. This should give me some time to
 come up with a better system. ;)
@@ -58,6 +58,6 @@ come up with a better system. ;)
 The drawback is that there is a 90-second timeframe in which all commits will result in the same version. If you want to
 use this system you should not release more than one new version in 90 seconds.
 
-Using the current Unit timestamp divided by 10 and putting dots between the numbers was the only alternative I could
-think of. This would have an accuracy of 10 seconds, but on the other hand it's not so readable. With this system you
-always now the year and you get a feeling if it was released early or late in the year.
+Using the current Unix timestamp divided by 10 and putting dots between the numbers was the only alternative I could
+think of. This would have an accuracy of 10 seconds, but on the other hand it's not really readable. With this system you
+always know the year and you get a feeling if it was released early or late in that year.
