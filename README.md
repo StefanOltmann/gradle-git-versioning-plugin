@@ -5,7 +5,7 @@
 This plugin generates a version name based on the timestamp of the latest commit in the Git repository.
 
 There is a ongoing debate if using the timestamp as source is useful or not. My personal opinion is that the
-[SemVer format](https://semver.org) is essential for libraries and framework, but for apps that get constantly updated
+[SemVer format](https://semver.org) is essential for libraries and frameworks, but for apps that get constantly updated
 it's not so useful.
 
 However, you're required to use it. For example if you want to release an iOS app
