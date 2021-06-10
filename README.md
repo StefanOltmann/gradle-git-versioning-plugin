@@ -19,7 +19,7 @@ Managing this manually is error-prone and time-consuming. That's why I want to g
 You need to first apply the plugin like this:
 
 ```
-apply plugin: 'de.stefan_oltmann.git-versioning'
+apply plugin: 'de.stefan-oltmann.git-versioning'
 ```
 
 The plugin will automatically set the projects version. So you don't need to specify it as this will override the value.
