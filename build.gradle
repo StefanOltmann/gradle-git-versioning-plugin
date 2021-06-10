@@ -6,7 +6,7 @@ plugins {
     id 'com.gradle.plugin-publish' version '0.15.0'
 }
 
-// must have a hypen to match plugin id
+// must have a hyphen to match plugin id
 group 'de.stefan-oltmann'
 version '0.1.0'
 

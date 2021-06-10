@@ -19,7 +19,7 @@ class GradleGitVersioningPluginTest {
         val commit = git.commit().setMessage("initial commit").setAllowEmpty(true).call()
 
         /* Apply the plugin */
-        project.pluginManager.apply("de.stefan_oltmann.git-versioning")
+        project.pluginManager.apply("de.stefan-oltmann.git-versioning")
         val extension: VersioningExtension =
             project.extensions.findByName("gitVersioning") as VersioningExtension
 
