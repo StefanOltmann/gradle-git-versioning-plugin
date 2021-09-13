@@ -8,7 +8,7 @@ plugins {
 
 // must have a hyphen to match plugin id
 group 'de.stefan-oltmann'
-version '0.1.0'
+version '0.2.0'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8

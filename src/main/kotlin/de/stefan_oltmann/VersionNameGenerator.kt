@@ -1,8 +1,7 @@
 package de.stefan_oltmann
 
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
+import java.time.*
+import java.time.temporal.WeekFields
 
 object VersionNameGenerator {
 
@@ -17,14 +16,24 @@ object VersionNameGenerator {
     }
 
     fun generateVersionName(dateTime: LocalDateTime) =
-        "${generateFirst(dateTime)}.${generateSecond(dateTime)}.${generateThird(dateTime)}"
+        "${generateMajor(dateTime)}.${generateMinor(dateTime)}.${generatePatch(dateTime)}"
 
-    private fun generateFirst(dateTime: LocalDateTime) =
+    private fun generateMajor(dateTime: LocalDateTime) =
         dateTime.year - 2000
 
-    private fun generateSecond(dateTime: LocalDateTime) =
-        dateTime.dayOfYear
+    private fun generateMinor(dateTime: LocalDateTime) =
+        dateTime.get(WeekFields.ISO.weekOfWeekBasedYear())
 
-    private fun generateThird(dateTime: LocalDateTime) =
-        (dateTime.toLocalTime().toSecondOfDay() / 60 / 1.5).toInt()
+    private fun generatePatch(dateTime: LocalDateTime): Long {
+
+        val startOfWeek = dateTime
+            .with(WeekFields.ISO.dayOfWeek(), DayOfWeek.MONDAY.value.toLong())
+            .withHour(0)
+            .withMinute(0)
+            .withSecond(0)
+
+        val secondsOfWeek = Duration.between(startOfWeek, dateTime).seconds
+
+        return secondsOfWeek / 10
+    }
 }

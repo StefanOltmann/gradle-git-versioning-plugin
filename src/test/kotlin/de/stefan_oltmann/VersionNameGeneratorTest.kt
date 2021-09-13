@@ -7,12 +7,34 @@ import java.time.LocalDateTime
 class VersionNameGeneratorTest {
 
     @Test
-    fun testGenerateVersionName() {
+    fun testGenerateVersionNameOnMonday() {
 
         Assertions.assertEquals(
-            "21.152.400",
+            "21.37.4320",
             VersionNameGenerator.generateVersionName(
-                LocalDateTime.of(2021, 6, 1, 10, 0)
+                LocalDateTime.of(2021, 9, 13, 12, 0)
+            )
+        )
+    }
+
+    @Test
+    fun testGenerateVersionNameOnTuesday() {
+
+        Assertions.assertEquals(
+            "21.37.12960",
+            VersionNameGenerator.generateVersionName(
+                LocalDateTime.of(2021, 9, 14, 12, 0)
+            )
+        )
+    }
+
+    @Test
+    fun testGenerateVersionNameOnSunday() {
+
+        Assertions.assertEquals(
+            "21.37.60474",
+            VersionNameGenerator.generateVersionName(
+                LocalDateTime.of(2021, 9, 19, 23, 59)
             )
         )
     }
@@ -32,9 +54,9 @@ class VersionNameGeneratorTest {
     fun testGenerateVersionNameForMaxValue() {
 
         Assertions.assertEquals(
-            "999.365.959",
+            "255.52.60474",
             VersionNameGenerator.generateVersionName(
-                LocalDateTime.of(2999, 12, 31, 23, 59)
+                LocalDateTime.of(2255, 12, 30, 23, 59)
             )
         )
     }
