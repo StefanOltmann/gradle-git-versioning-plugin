@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
 
     id 'maven-publish' // local testing
-    id 'com.gradle.plugin-publish' version '0.15.0'
+    id 'com.gradle.plugin-publish' version '0.16.0'
 }
 
 // must have a hyphen to match plugin id
