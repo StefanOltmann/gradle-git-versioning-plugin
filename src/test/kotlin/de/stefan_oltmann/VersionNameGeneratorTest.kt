@@ -10,9 +10,20 @@ class VersionNameGeneratorTest {
     fun testGenerateVersionNameOnMonday() {
 
         Assertions.assertEquals(
-            "21.37.4320",
+            "21.48.0",
             VersionNameGenerator.generateVersionName(
-                LocalDateTime.of(2021, 9, 13, 12, 0)
+                LocalDateTime.of(2021, 11, 29, 0, 0)
+            )
+        )
+    }
+
+    @Test
+    fun testGenerateVersionNameOnMondayOneHourLater() {
+
+        Assertions.assertEquals(
+            "21.48.1",
+            VersionNameGenerator.generateVersionName(
+                LocalDateTime.of(2021, 11, 29, 1, 0)
             )
         )
     }
@@ -21,9 +32,9 @@ class VersionNameGeneratorTest {
     fun testGenerateVersionNameOnTuesday() {
 
         Assertions.assertEquals(
-            "21.37.12960",
+            "21.48.60",
             VersionNameGenerator.generateVersionName(
-                LocalDateTime.of(2021, 9, 14, 12, 0)
+                LocalDateTime.of(2021, 12, 1, 12, 0)
             )
         )
     }
@@ -32,9 +43,9 @@ class VersionNameGeneratorTest {
     fun testGenerateVersionNameOnSunday() {
 
         Assertions.assertEquals(
-            "21.37.60474",
+            "21.48.167",
             VersionNameGenerator.generateVersionName(
-                LocalDateTime.of(2021, 9, 19, 23, 59)
+                LocalDateTime.of(2021, 12, 5, 23, 59)
             )
         )
     }
@@ -54,7 +65,7 @@ class VersionNameGeneratorTest {
     fun testGenerateVersionNameForMaxValue() {
 
         Assertions.assertEquals(
-            "255.52.60474",
+            "255.52.167",
             VersionNameGenerator.generateVersionName(
                 LocalDateTime.of(2255, 12, 30, 23, 59)
             )

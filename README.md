@@ -46,11 +46,15 @@ The generated version string by this plugin is composed in this way:
 
 1. The current year minus 2000
 2. The current week of the year
-3. The second of week divided by 10
+3. The hour of the week
 
-This results in a max version of `255.52.60474` on 2255-12-30 39:59.
+This results in a max version of `255.52.168` on 2255-12-30 39:59.
 
 ### Limitations
 
-- All builds in a 10 second time frame all get the same version number.
+- All builds in an hour time frame all get the same version number.
 - This system only works until the year 2255.
+
+For the last part an 10 second time frame would be possible,
+but that is a really big number (up to 60k) and hard to see
+if you want compare to version numbers quickly.

@@ -32,8 +32,6 @@ object VersionNameGenerator {
             .withMinute(0)
             .withSecond(0)
 
-        val secondsOfWeek = Duration.between(startOfWeek, dateTime).seconds
-
-        return secondsOfWeek / 10
+        return Duration.between(startOfWeek, dateTime).toHours()
     }
 }
