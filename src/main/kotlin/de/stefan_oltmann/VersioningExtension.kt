@@ -17,8 +17,14 @@ open class VersioningExtension(val project: Project) {
 
     private fun generateVersionName(): String {
 
-        if (commitTime == 0)
-            return ""
+        if (commitTime == 0) {
+
+            project.logger.warn(
+                "Reporting version as 0.0.0, because we did not find the Git commit time."
+            )
+
+            return "0.0.0"
+        }
 
         val dateTime = LocalDateTime.ofInstant(
             Instant.ofEpochSecond(commitTime.toLong()),
@@ -27,7 +33,9 @@ open class VersioningExtension(val project: Project) {
 
         val versionName = VersionNameGenerator.generateVersionName(dateTime)
 
-        project.logger.lifecycle("This is version $versionName (commited on $dateTime).")
+        project.logger.lifecycle(
+            "This is version $versionName (commited on $commitTime = $dateTime)."
+        )
 
         return versionName
     }
