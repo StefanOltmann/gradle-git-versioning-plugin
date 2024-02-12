@@ -27,7 +27,8 @@ open class VersioningExtension(val project: Project) {
 
         val versionName = VersionNameGenerator.generateVersionName(dateTime)
 
-        println("Commited on $commitTime = $dateTime. This results in version $versionName")
+        if (project.logger.isLifecycleEnabled && !project.logger.isQuietEnabled)
+            project.logger.lifecycle("This is version $versionName (commited on $dateTime).")
 
         return versionName
     }

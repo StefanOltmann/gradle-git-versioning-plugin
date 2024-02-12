@@ -35,7 +35,8 @@ class GradleGitVersioningPlugin : Plugin<Project> {
 
                 versionFile.writeText(extension.versionName)
 
-                println("Current version '${extension.versionName}' written to ${versionFile.absolutePath}")
+                if (project.logger.isInfoEnabled && !project.logger.isQuietEnabled)
+                    project.logger.info("Current version '${extension.versionName}' was written to ${versionFile.absolutePath}")
             }
         }
 
@@ -44,7 +45,8 @@ class GradleGitVersioningPlugin : Plugin<Project> {
 
                 GitUtil.tagCommit(project.rootDir, extension.versionName)
 
-                println("Current version '${extension.versionName}' written to Git tag")
+                if (project.logger.isInfoEnabled && !project.logger.isQuietEnabled)
+                    project.logger.info("Current version '${extension.versionName}' was written to Git tag")
             }
         }
 
