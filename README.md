@@ -40,7 +40,7 @@ scripts.
 The version string Apple requires is composed of one to three period-separated integers, such as 10.14.1.
 The string can only contain numeric characters (0-9) and periods.
 
-An MSI setup can have a maximum of `255.255.65535` as it's version number.
+An MSI setup can have a maximum of `255.255.65535` as its version number.
 
 The generated version string by this plugin is composed in this way:
 
